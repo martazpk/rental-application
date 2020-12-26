@@ -1,9 +1,9 @@
 package com.mkopp.rentalapplication.domain.apartment;
 
-public class SquereMeter {
+class SquereMeter {
     private final Double size;
 
-    public SquereMeter(Double size) {
+    SquereMeter(Double size) {
         this.size = size;
     }
 }
