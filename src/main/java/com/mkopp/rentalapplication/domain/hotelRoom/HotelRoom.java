@@ -14,13 +14,13 @@ public class HotelRoom {
     private int number;
     private String description;
     @OneToMany
-    private List<Section> sections;
+    private List<Space> spaces;
 
-    HotelRoom(String hotelId, int number, String description, List<Section> sections) {
+    HotelRoom(String hotelId, int number, String description, List<Space> spaces) {
         this.hotelId = hotelId;
         this.number = number;
         this.description = description;
-        this.sections = sections;
+        this.spaces = spaces;
     }
 
     protected HotelRoom() {

@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-class Section {
+class Space {
     @Id
     @GeneratedValue
     private String id;
@@ -14,11 +14,11 @@ class Section {
     @Embedded
     private SquareMeter squareMeter;
 
-    Section(String name, SquareMeter squareMeter) {
+    Space(String name, SquareMeter squareMeter) {
         this.name = name;
         this.squareMeter = squareMeter;
     }
 
-    protected Section() {
+    protected Space() {
     }
 }
