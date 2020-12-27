@@ -1,11 +1,14 @@
 package com.mkopp.rentalapplication.domain.hotel;
 
+import javax.persistence.Embeddable;
+
+@Embeddable
 class Address {
-    private final String street;
-    private final String buildingNumber;
-    private final String postalCode;
-    private final String city;
-    private final String country;
+    private String street;
+    private String buildingNumber;
+    private String postalCode;
+    private String city;
+    private String country;
 
     Address(String street, String buildingNumber, String postalCode, String city, String country) {
         this.street = street;
@@ -13,5 +16,8 @@ class Address {
         this.postalCode = postalCode;
         this.city = city;
         this.country = country;
+    }
+
+    protected Address() {
     }
 }
