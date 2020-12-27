@@ -13,7 +13,7 @@ public class RoomApplicationService {
         this.hotelRoomRepository = hotelRoomRepository;
     }
 
-    void add(String hotelId, int number, String description, Map<String, Double> sectionsDefinition){
+    public void add(String hotelId, int number, String description, Map<String, Double> sectionsDefinition){
         HotelRoom hotelRoom =new HotelRoomFactory().create(hotelId, number, description, sectionsDefinition);
 
         hotelRoomRepository.save(hotelRoom);
