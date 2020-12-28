@@ -3,6 +3,7 @@ package com.mkopp.rentalapplication.application.apartment;
 import com.mkopp.rentalapplication.domain.apartment.Apartment;
 import com.mkopp.rentalapplication.domain.apartment.ApartmentFactory;
 import com.mkopp.rentalapplication.domain.apartment.ApartmentRepository;
+import com.mkopp.rentalapplication.domain.apartment.Period;
 
 import java.time.LocalDate;
 import java.util.Map;
@@ -24,5 +25,9 @@ private final ApartmentRepository apartmentRepository;
     }
 
     public void book(String id, String tenantId, LocalDate start, LocalDate end) {
+        Apartment apartment = apartmentRepository.findById(id);
+
+        Period period = new Period(start, end);
+        apartment.book(tenantId, period);
     }
 }

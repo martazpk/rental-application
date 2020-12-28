@@ -23,4 +23,8 @@ public class Apartment {
 
     protected Apartment() {
     }
+
+    public void book(String tenantId, Period period) {
+        //publish event
+    }
 }
