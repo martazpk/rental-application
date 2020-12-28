@@ -4,6 +4,7 @@ import com.mkopp.rentalapplication.domain.apartment.Apartment;
 import com.mkopp.rentalapplication.domain.apartment.ApartmentFactory;
 import com.mkopp.rentalapplication.domain.apartment.ApartmentRepository;
 
+import java.time.LocalDate;
 import java.util.Map;
 
 public class ApartmentApplicationService {
@@ -22,4 +23,6 @@ private final ApartmentRepository apartmentRepository;
         apartmentRepository.save(apartment);
     }
 
+    public void book(String id, String tenantId, LocalDate start, LocalDate end) {
+    }
 }

@@ -1,10 +1,7 @@
 package com.mkopp.rentalapplication.infrastructure.rest.api.apartment;
 
 import com.mkopp.rentalapplication.application.apartment.ApartmentApplicationService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/apartment")
@@ -21,4 +18,11 @@ public class ApartmentRestController {
                 apartmentDto.getHouseNumber(), apartmentDto.getApartmentNumber(), apartmentDto.getCity(), apartmentDto.getCountry(),
                 apartmentDto.getDescription(), apartmentDto.getRoomsDefinition());
     }
+
+    @PutMapping("/book/{id}")
+    public void book(@PathVariable String id, ApartmentBookingDto apartmentBookingDto){
+        apartmentApplicationService.book(
+                id, apartmentBookingDto.getTenantId(), apartmentBookingDto.getStart(), apartmentBookingDto.getEnd());
+    }
+
 }
