@@ -1,5 +1,7 @@
 package com.mkopp.rentalapplication.domain.apartment;
 
+import com.mkopp.rentalapplication.domain.eventchannel.EventChannel;
+
 import javax.persistence.*;
 import java.util.List;
 @Entity
@@ -24,8 +26,9 @@ public class Apartment {
     protected Apartment() {
     }
 
-    public void book(String tenantId, Period period) {
+    public void book(String tenantId, Period period, EventChannel eventChannel) {
         //publish event
         ApartmentBooked apartmentBooked = ApartmentBooked.create(id, ownerId, tenantId, period);
+        eventChannel.publish(apartmentBooked);
     }
 }

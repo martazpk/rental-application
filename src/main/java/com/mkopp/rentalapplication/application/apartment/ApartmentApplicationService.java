@@ -1,18 +1,18 @@
 package com.mkopp.rentalapplication.application.apartment;
 
-import com.mkopp.rentalapplication.domain.apartment.Apartment;
-import com.mkopp.rentalapplication.domain.apartment.ApartmentFactory;
-import com.mkopp.rentalapplication.domain.apartment.ApartmentRepository;
-import com.mkopp.rentalapplication.domain.apartment.Period;
+import com.mkopp.rentalapplication.domain.apartment.*;
+import com.mkopp.rentalapplication.domain.eventchannel.EventChannel;
 
 import java.time.LocalDate;
 import java.util.Map;
 
 public class ApartmentApplicationService {
 private final ApartmentRepository apartmentRepository;
+private final EventChannel eventChannel;
 
-    public ApartmentApplicationService(ApartmentRepository apartmentRepository) {
+    public ApartmentApplicationService(ApartmentRepository apartmentRepository, EventChannel eventChannel) {
         this.apartmentRepository = apartmentRepository;
+        this.eventChannel = eventChannel;
     }
 
     public void add(
@@ -28,6 +28,6 @@ private final ApartmentRepository apartmentRepository;
         Apartment apartment = apartmentRepository.findById(id);
 
         Period period = new Period(start, end);
-        apartment.book(tenantId, period);
+        apartment.book(tenantId, period, eventChannel);
     }
 }
