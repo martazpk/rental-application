@@ -1,10 +1,14 @@
 package com.mkopp.rentalapplication.domain.apartment;
 
 import com.mkopp.rentalapplication.domain.eventchannel.EventChannel;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.List;
 @Entity
+@Getter
+@Setter
 public class Apartment {
     @Id
     @GeneratedValue
@@ -26,9 +30,10 @@ public class Apartment {
     protected Apartment() {
     }
 
-    public void book(String tenantId, Period period, EventChannel eventChannel) {
+    public Booking book(String tenantId, Period period, EventChannel eventChannel) {
         //publish event
         ApartmentBooked apartmentBooked = ApartmentBooked.create(id, ownerId, tenantId, period);
         eventChannel.publish(apartmentBooked);
+        return new Booking(id, tenantId, period);
     }
 }
