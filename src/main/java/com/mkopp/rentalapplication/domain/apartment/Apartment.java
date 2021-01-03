@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -30,10 +31,12 @@ public class Apartment {
     protected Apartment() {
     }
 
-    public Booking book(String tenantId, Period period, EventChannel eventChannel) {
+    public Booking book(String tenantId, Period period, RentalType rentalType, EventChannel eventChannel) {
         //publish event
-        ApartmentBooked apartmentBooked = ApartmentBooked.create(id, ownerId, tenantId, period);
+        ApartmentBooked apartmentBooked = ApartmentBooked.create(id, ownerId, tenantId, rentalType, period);
         eventChannel.publish(apartmentBooked);
-        return new Booking(id, tenantId, period);
+        return Booking.apartment(id, tenantId, period);
     }
+
+
 }

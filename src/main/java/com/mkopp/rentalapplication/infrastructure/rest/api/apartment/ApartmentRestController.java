@@ -22,7 +22,7 @@ public class ApartmentRestController {
     @PutMapping("/book/{id}")
     public void book(@PathVariable String id, ApartmentBookingDto apartmentBookingDto){
         apartmentApplicationService.book(
-                id, apartmentBookingDto.getTenantId(), apartmentBookingDto.getStart(), apartmentBookingDto.getEnd());
+                id, apartmentBookingDto.getTenantId(), apartmentBookingDto.getRentalType(), apartmentBookingDto.getStart(), apartmentBookingDto.getEnd());
     }
 
 }

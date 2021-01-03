@@ -2,7 +2,6 @@ package com.mkopp.rentalapplication.application.apartment;
 
 import com.mkopp.rentalapplication.domain.apartment.*;
 import com.mkopp.rentalapplication.domain.eventchannel.EventChannel;
-import com.mkopp.rentalapplication.domain.hotelBookHistory.HotelBookingHistoryRepository;
 
 import java.time.LocalDate;
 import java.util.Map;
@@ -27,11 +26,11 @@ public class ApartmentApplicationService {
         apartmentRepository.save(apartment);
     }
 
-    public void book(String id, String tenantId, LocalDate start, LocalDate end) {
+    public void book(String id, String tenantId, RentalType rentalType, LocalDate start, LocalDate end) {
         Apartment apartment = apartmentRepository.findById(id);
         Period period = new Period(start, end);
 
-        Booking booking = apartment.book(tenantId, period, eventChannel);
+        Booking booking = apartment.book(tenantId, period, rentalType, eventChannel);
 
         bookingRepository.save(booking);
     }

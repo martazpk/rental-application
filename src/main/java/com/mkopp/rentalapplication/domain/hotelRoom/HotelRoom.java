@@ -1,5 +1,6 @@
 package com.mkopp.rentalapplication.domain.hotelRoom;
 
+import com.mkopp.rentalapplication.domain.apartment.Booking;
 import com.mkopp.rentalapplication.domain.eventchannel.EventChannel;
 
 import javax.persistence.Entity;
@@ -29,8 +30,9 @@ public class HotelRoom {
     protected HotelRoom() {
     }
 
-    public void book(String tenantId, List<LocalDate> dates, EventChannel eventChannel) {
+    public Booking book(String tenantId, List<LocalDate> dates, EventChannel eventChannel) {
         HotelRoomBooked hotelRoomBooked = HotelRoomBooked.create(id, hotelId, tenantId, dates);
         eventChannel.publish(hotelRoomBooked);
+        return Booking.hotelRoom(id, tenantId, dates);
     }
 }

@@ -5,6 +5,8 @@ import lombok.Setter;
 
 import javax.persistence.Embeddable;
 import java.time.LocalDate;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Embeddable
 @Getter
@@ -20,4 +22,9 @@ public class Period {
 
     public Period() {
     }
+
+    public List<LocalDate> asDays() {
+        return start.datesUntil(end.plusDays(1)).collect(Collectors.toList());
+    }
+
 }
