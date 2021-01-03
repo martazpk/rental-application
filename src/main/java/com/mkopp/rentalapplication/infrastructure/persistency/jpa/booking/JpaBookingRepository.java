@@ -1,4 +1,4 @@
-package com.mkopp.rentalapplication.infrastructure.persistency.jpa.apartment;
+package com.mkopp.rentalapplication.infrastructure.persistency.jpa.booking;
 
 import com.mkopp.rentalapplication.domain.apartment.Booking;
 import com.mkopp.rentalapplication.domain.apartment.BookingRepository;
