@@ -1,5 +1,7 @@
 package com.mkopp.rentalapplication.domain.apartment;
 
+import com.mkopp.rentalapplication.domain.eventchannel.EventChannel;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
@@ -11,19 +13,19 @@ public class Booking {
     private String id;
     @Enumerated(EnumType.STRING)
     private RentalType rentalType;
-    private String apartmentId;
+    private String rentalPlaceId;
     private String tenantId;
-    private List<LocalDate> dates;
+    private List<LocalDate> days;
     private BookingStatus bookingStatus = BookingStatus.OPEN;
 
     public Booking() {
     }
 
-    private Booking(RentalType rentalType, String apartmentId, String tenantId, List<LocalDate> dates) {
+    private Booking(RentalType rentalType, String rentalPlaceId, String tenantId, List<LocalDate> dates) {
         this.rentalType = rentalType;
-        this.apartmentId = apartmentId;
+        this.rentalPlaceId = rentalPlaceId;
         this.tenantId = tenantId;
-        this.dates = dates;
+        this.days = dates;
     }
 
     public static Booking apartment(String rentalPlaceId, String tenantId, Period period) {
@@ -37,5 +39,11 @@ public class Booking {
 
     public void reject() {
         bookingStatus = BookingStatus.REJECTED;
+    }
+
+    public void accept(EventChannel eventChannel) {
+        bookingStatus = BookingStatus.ACCEPTED;
+       BookingAccepted bookingAccepted = BookingAccepted.create(rentalType, rentalPlaceId, tenantId, days);
+       eventChannel.publish(bookingAccepted);
     }
 }
