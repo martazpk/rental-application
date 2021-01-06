@@ -1,11 +1,9 @@
 package com.mkopp.rentalapplication.domain.hotelRoom;
 
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "ROOM_SPACE")
 class Space {
     @Id
     @GeneratedValue

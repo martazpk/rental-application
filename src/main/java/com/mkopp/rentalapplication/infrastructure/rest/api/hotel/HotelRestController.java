@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HotelRestController {
     private final HotelApplicationService hotelApplicationService;
 
+
     public HotelRestController(HotelApplicationService hotelApplicationService) {
         this.hotelApplicationService = hotelApplicationService;
     }
@@ -21,5 +22,6 @@ public class HotelRestController {
                 hotelDto.getName(), hotelDto.getStreet(), hotelDto.getBuildingNumber(),
                 hotelDto.getPostalCode(), hotelDto.getCity(), hotelDto.getCountry());
     }
+
 }
 
