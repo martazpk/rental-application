@@ -1,6 +1,7 @@
 package com.mkopp.rentalapplication.infrastructure.rest.api.apartment;
 
 import com.mkopp.rentalapplication.application.apartment.ApartmentApplicationService;
+import com.mkopp.rentalapplication.query.apartment.ApartmentDetails;
 import com.mkopp.rentalapplication.query.apartment.ApartmentReadModel;
 import com.mkopp.rentalapplication.query.apartment.QueryApartmentRepository;
 import org.springframework.web.bind.annotation.*;
@@ -32,6 +33,11 @@ public class ApartmentRestController {
     @GetMapping
     public Iterable<ApartmentReadModel> getAll() {
         return queryApartmentRepository.getAll();
+    }
+
+    @GetMapping("/{id}")
+    public ApartmentDetails findByid(@PathVariable String id){
+        return queryApartmentRepository.findById(id);
     }
 
 }

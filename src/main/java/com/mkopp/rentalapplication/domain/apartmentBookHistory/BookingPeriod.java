@@ -1,14 +1,19 @@
 package com.mkopp.rentalapplication.domain.apartmentBookHistory;
 
+import javax.persistence.Embeddable;
 import java.time.LocalDate;
-
+@Embeddable
 public class BookingPeriod {
-    private final LocalDate start;
-    private final LocalDate end;
+    private LocalDate start;
+    private LocalDate end;
 
     public BookingPeriod(LocalDate start, LocalDate end) {
         this.start = start;
         this.end = end;
+    }
+
+    private BookingPeriod() {
+
     }
 
     public LocalDate getStart() {
