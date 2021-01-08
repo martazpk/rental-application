@@ -43,7 +43,7 @@ public class Booking {
 
     public void accept(EventChannel eventChannel) {
         bookingStatus = BookingStatus.ACCEPTED;
-       BookingAccepted bookingAccepted = BookingAccepted.create(rentalType, rentalPlaceId, tenantId, days);
-       eventChannel.publish(bookingAccepted);
+        BookingAccepted bookingAccepted = BookingAccepted.create(rentalType, rentalPlaceId, tenantId, days);
+        eventChannel.publish(bookingAccepted);
     }
 }
