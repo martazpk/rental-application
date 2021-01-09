@@ -39,5 +39,4 @@ public class Apartment {
         return Booking.apartment(id, tenantId, period);
     }
 
-
 }

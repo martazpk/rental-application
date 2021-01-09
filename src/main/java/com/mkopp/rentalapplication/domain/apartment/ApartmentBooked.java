@@ -1,11 +1,12 @@
 package com.mkopp.rentalapplication.domain.apartment;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 public class ApartmentBooked {
     private final String eventId;
-    private final LocalDate eventCreationDateTime;
+    private final LocalDateTime eventCreationDateTime;
     private final String apartmentId;
     private final String ownerId;
     private final String tenantId;
@@ -13,7 +14,7 @@ public class ApartmentBooked {
     private final LocalDate periodStart;
     private final LocalDate periodEnd;
 
-    private ApartmentBooked(String eventId, LocalDate eventCreationDateTime, String apartmentId, String ownerId, String tenantId, RentalType rentalType, Period period) {
+    private ApartmentBooked(String eventId, LocalDateTime eventCreationDateTime, String apartmentId, String ownerId, String tenantId, RentalType rentalType, Period period) {
         this.eventId = eventId;
         this.eventCreationDateTime = eventCreationDateTime;
         this.apartmentId = apartmentId;
@@ -26,7 +27,7 @@ public class ApartmentBooked {
 
     public static ApartmentBooked create(String apartmentId, String ownerId, String tenantId, RentalType rentalType, Period period) {
         String eventId = UUID.randomUUID().toString();
-        LocalDate eventCreationDateTime = LocalDate.now();
+        LocalDateTime eventCreationDateTime = LocalDateTime.now();
         return new ApartmentBooked(eventId, eventCreationDateTime, apartmentId, ownerId, tenantId, rentalType, period);
     }
 
@@ -34,7 +35,7 @@ public class ApartmentBooked {
         return eventId;
     }
 
-    public LocalDate getEventCreationDateTime() {
+    public LocalDateTime getEventCreationDateTime() {
         return eventCreationDateTime;
     }
 
