@@ -10,11 +10,11 @@ class Room {
     private String id;
     private String name;
     @Embedded
-    private SquereMeter squereMeter;
+    private SquereMeter squareMeter;
 
     Room(String name, SquereMeter squereMeter) {
         this.name = name;
-        this.squereMeter = squereMeter;
+        this.squareMeter = squereMeter;
     }
 
     protected Room() {
