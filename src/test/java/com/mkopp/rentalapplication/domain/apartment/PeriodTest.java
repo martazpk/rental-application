@@ -17,4 +17,14 @@ class PeriodTest {
         System.out.println(days);
         assertThat(days).hasSize(2);
     }
+
+    @Test
+    void shouldReturnExactlyOneDayWhenStartAndEndAreTheSame() {
+        LocalDate day = LocalDate.of(2021, 01, 03);
+        Period period = new Period(day, day);
+
+        List<LocalDate> actual = period.asDays();
+
+        assertThat(actual).containsExactly(day);
+    }
 }
