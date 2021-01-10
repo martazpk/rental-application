@@ -33,8 +33,8 @@ public class Booking {
         return new Booking(RentalType.APARTMENT, rentalPlaceId, tenantId, dates);
     }
 
-    public static Booking hotelRoom(String rentalPlaceId, String tenantId, List<LocalDate> dates) {
-        return new Booking(RentalType.HOTEL, rentalPlaceId, tenantId, dates);
+    public static Booking hotel(String rentalPlaceId, String tenantId, List<LocalDate> days) {
+        return new Booking(RentalType.HOTEL, rentalPlaceId, tenantId, days);
     }
 
     public void reject() {

@@ -30,7 +30,7 @@ public class HotelRoom {
 
     public Booking book(String tenantId, List<LocalDate> dates, EventChannel eventChannel) {
         HotelRoomBooked hotelRoomBooked = HotelRoomBooked.create(id, hotelId, tenantId, dates);
-        eventChannel.publish(hotelRoomBooked);
-        return Booking.hotelRoom(id, tenantId, dates);
+        eventChannel.publish(hotelRoomBooked); 
+        return Booking.hotel(id, tenantId, dates);
     }
 }
