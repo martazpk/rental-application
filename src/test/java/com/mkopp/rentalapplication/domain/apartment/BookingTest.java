@@ -20,7 +20,7 @@ class BookingTest {
         BookingAssertions.assertThat(actual)
                 .hasRentalPlaceIdEqualTo(rentalPlaceId)
                 .hasTenantIdEqualTo(tenantId)
-                .hasDays(ImmutableList.of(start, dayBetweenStartAndEnd, end))
+                .hasAllDays(ImmutableList.of(start, dayBetweenStartAndEnd, end))
                 .isApartment()
                 .hasBookingStatusOpen();
     }
@@ -33,7 +33,7 @@ class BookingTest {
         BookingAssertions.assertThat(actual)
                 .hasRentalPlaceIdEqualTo(rentalPlaceId)
                 .hasTenantIdEqualTo(tenantId)
-                .hasDays(days)
+                .hasAllDays(days)
                 .isHotel()
                 .hasBookingStatusOpen();
     }

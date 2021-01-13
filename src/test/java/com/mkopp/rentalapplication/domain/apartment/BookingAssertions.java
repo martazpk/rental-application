@@ -37,7 +37,7 @@ public class BookingAssertions {
         return this;
     }
 
-    public BookingAssertions hasDays(List<LocalDate> expected) {
+    public BookingAssertions hasAllDays(List<LocalDate> expected) {
         Assertions.assertThat(actual).hasFieldOrPropertyWithValue("days", expected);
         return this;
     }
