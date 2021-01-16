@@ -2,12 +2,8 @@ package com.mkopp.rentalapplication.domain.apartment;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "APARTMENT_ROOM")
+@Embeddable
 class Room {
-    @Id
-    @GeneratedValue
-    private String id;
     private String name;
     @Embedded
     private SquereMeter squareMeter;

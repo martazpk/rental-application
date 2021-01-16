@@ -18,7 +18,7 @@ public class Apartment {
     private String ownerId;
     @Embedded
     private Address address;
-    @OneToMany
+    @ElementCollection
     private List<Room> rooms;
     private String description;
 
