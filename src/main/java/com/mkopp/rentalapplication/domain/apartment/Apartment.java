@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Getter
@@ -14,7 +15,7 @@ import java.util.List;
 public class Apartment {
     @Id
     @GeneratedValue
-    private String id;
+    private UUID id;
     private String ownerId;
     @Embedded
     private Address address;
@@ -29,14 +30,18 @@ public class Apartment {
         this.description = description;
     }
 
-    protected Apartment() {
+    private Apartment() {
     }
 
     public Booking book(String tenantId, Period period, RentalType rentalType, EventChannel eventChannel) {
         //publish event
-        ApartmentBooked apartmentBooked = ApartmentBooked.create(id, ownerId, tenantId, rentalType, period);
+        ApartmentBooked apartmentBooked = ApartmentBooked.create(id(), ownerId, tenantId, rentalType, period);
         eventChannel.publish(apartmentBooked);
-        return Booking.apartment(id, tenantId, period);
+        return Booking.apartment(id(), tenantId, period);
+    }
+
+    public String id() {
+        return id.toString();
     }
 
 }

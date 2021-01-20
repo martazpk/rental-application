@@ -6,7 +6,9 @@ import com.mkopp.rentalapplication.domain.apartmentBookHistory.ApartmentBookingH
 import com.mkopp.rentalapplication.domain.apartmentBookHistory.ApartmentBookingHistoryRepository;
 import com.mkopp.rentalapplication.domain.apartmentBookHistory.BookingPeriod;
 import org.springframework.context.event.EventListener;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ApartmentBookingHistoryEventListener {
 
     private final ApartmentBookingHistoryRepository apartmentBookingHistoryRepository;

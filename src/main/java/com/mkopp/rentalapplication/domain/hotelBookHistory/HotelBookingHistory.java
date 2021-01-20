@@ -1,25 +1,28 @@
 package com.mkopp.rentalapplication.domain.hotelBookHistory;
 
-import lombok.Getter;
-import lombok.Setter;
-
+import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
-@Getter
-@Setter
+import java.util.UUID;
+
+@Entity
 public class HotelBookingHistory {
     @Id
-    private final String roomId;
-    private final String hotelId;
-    private final List<HotelRoomBooking> bookings = new ArrayList<>();
+    private UUID hotelId;
+    private String roomId;
+    @OneToMany
+    private List<HotelRoomBooking> bookings = new ArrayList<>();
 
-    public HotelBookingHistory(String hotelId, String roomId) {
-        this.hotelId = hotelId;
+    public HotelBookingHistory(String roomId) {
         this.roomId = roomId;
     }
 
     public void add(HotelRoomBooking newBooking) {
         bookings.add(newBooking);
+    }
+
+    private HotelBookingHistory() {
     }
 }

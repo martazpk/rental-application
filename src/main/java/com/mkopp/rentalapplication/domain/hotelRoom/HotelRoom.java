@@ -6,16 +6,19 @@ import com.mkopp.rentalapplication.domain.eventchannel.EventChannel;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.UUID;
+
 @Entity
 @Table(name = "HOTEL_ROOM")
 public class HotelRoom {
     @Id
     @GeneratedValue
-    private String id;
+    private UUID id;
     private String hotelId;
     private int number;
     private String description;
-    @OneToMany
+    @ElementCollection
+    @Column(name = "space list")
     private List<Space> spaces;
 
     HotelRoom(String hotelId, int number, String description, List<Space> spaces) {
@@ -25,12 +28,16 @@ public class HotelRoom {
         this.spaces = spaces;
     }
 
-    protected HotelRoom() {
+    private HotelRoom() {
     }
 
     public Booking book(String tenantId, List<LocalDate> dates, EventChannel eventChannel) {
-        HotelRoomBooked hotelRoomBooked = HotelRoomBooked.create(id, hotelId, tenantId, dates);
+        HotelRoomBooked hotelRoomBooked = HotelRoomBooked.create(id(), hotelId, tenantId, dates);
         eventChannel.publish(hotelRoomBooked); 
-        return Booking.hotel(id, tenantId, dates);
+        return Booking.hotel(id(), tenantId, dates);
+    }
+
+    public String id() {
+        return id.toString();
     }
 }

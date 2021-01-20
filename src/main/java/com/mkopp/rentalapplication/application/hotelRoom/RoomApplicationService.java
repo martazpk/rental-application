@@ -6,11 +6,13 @@ import com.mkopp.rentalapplication.domain.eventchannel.EventChannel;
 import com.mkopp.rentalapplication.domain.hotelRoom.HotelRoom;
 import com.mkopp.rentalapplication.domain.hotelRoom.HotelRoomFactory;
 import com.mkopp.rentalapplication.domain.hotelRoom.HotelRoomRepository;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
+@Service
 public class RoomApplicationService {
     private final HotelRoomRepository hotelRoomRepository;
     private final EventChannel eventChannel;

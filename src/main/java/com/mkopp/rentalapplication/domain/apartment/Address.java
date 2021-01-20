@@ -20,7 +20,7 @@ class Address {
         this.country = country;
     }
 
-    protected Address() {
+    private Address() {
     }
 }
 

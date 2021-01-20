@@ -13,5 +13,5 @@ public class HotelRoomReadModel {
     private int number;
     private String description;
     @OneToMany
-    private List<SpaceReadModel> spaces;
+    private List<SpaceReadModel> spaceList;
 }

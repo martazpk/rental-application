@@ -2,19 +2,17 @@ package com.mkopp.rentalapplication.query.apartment;
 
 import lombok.Getter;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.Embeddable;
 import java.time.LocalDate;
 
-@Entity
-@Table(name = "APARTMENT_BOOKING")
+@Embeddable
 @Getter
 public class ApartmentBookingReadModel {
-    private final String step;
-    private final String ownerId;
-    private final String tenantId;
-    private final LocalDate start;
-    private final LocalDate end;
+    private String step;
+    private String ownerId;
+    private String tenantId;
+    private LocalDate start;
+    private LocalDate end;
 
 
     public ApartmentBookingReadModel(String step, String ownerId, String tenantId, LocalDate start, LocalDate end) {
@@ -23,5 +21,8 @@ public class ApartmentBookingReadModel {
         this.tenantId = tenantId;
         this.start = start;
         this.end = end;
+    }
+
+    private ApartmentBookingReadModel() {
     }
 }

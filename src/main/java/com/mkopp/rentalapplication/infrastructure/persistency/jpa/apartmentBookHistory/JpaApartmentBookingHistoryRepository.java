@@ -2,7 +2,9 @@ package com.mkopp.rentalapplication.infrastructure.persistency.jpa.apartmentBook
 
 import com.mkopp.rentalapplication.domain.apartmentBookHistory.ApartmentBookingHistory;
 import com.mkopp.rentalapplication.domain.apartmentBookHistory.ApartmentBookingHistoryRepository;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class JpaApartmentBookingHistoryRepository implements ApartmentBookingHistoryRepository {
     private final SpringApartmentBookingHistory springApartmentBookingHistory;
 

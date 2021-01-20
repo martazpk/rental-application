@@ -3,7 +3,9 @@ package com.mkopp.rentalapplication.application.hotel;
 import com.mkopp.rentalapplication.domain.hotel.Hotel;
 import com.mkopp.rentalapplication.domain.hotel.HotelFactory;
 import com.mkopp.rentalapplication.domain.hotel.HotelRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class HotelApplicationService {
     private final HotelRepository hotelRepository;
 

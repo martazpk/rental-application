@@ -1,6 +1,8 @@
 package com.mkopp.rentalapplication.query.hotel;
 
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class QueryHotelRepository {
     private final SpringHotelReadModelRepository springRepository;
 

@@ -4,7 +4,9 @@ import com.mkopp.rentalapplication.domain.apartment.Booking;
 import com.mkopp.rentalapplication.domain.apartment.BookingRepository;
 import com.mkopp.rentalapplication.domain.eventchannel.EventChannel;
 import org.springframework.context.event.EventListener;
+import org.springframework.stereotype.Component;
 
+@Component
 public class BookingCommandHandler {
     private final BookingRepository bookingRepository;
     private final EventChannel eventChannel;

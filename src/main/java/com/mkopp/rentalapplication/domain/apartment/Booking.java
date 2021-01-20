@@ -5,16 +5,18 @@ import com.mkopp.rentalapplication.domain.eventchannel.EventChannel;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 public class Booking {
     @Id
     @GeneratedValue
-    private String id;
+    private UUID id;
     @Enumerated(EnumType.STRING)
     private RentalType rentalType;
     private String rentalPlaceId;
     private String tenantId;
+    @ElementCollection
     private List<LocalDate> days;
     private BookingStatus bookingStatus = BookingStatus.OPEN;
 
@@ -45,5 +47,9 @@ public class Booking {
         bookingStatus = BookingStatus.ACCEPTED;
         BookingAccepted bookingAccepted = BookingAccepted.create(rentalType, rentalPlaceId, tenantId, days);
         eventChannel.publish(bookingAccepted);
+    }
+
+    public String id() {
+        return id.toString();
     }
 }

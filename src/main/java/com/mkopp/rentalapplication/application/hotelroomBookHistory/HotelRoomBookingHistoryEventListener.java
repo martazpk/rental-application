@@ -29,6 +29,6 @@ public class HotelRoomBookingHistoryEventListener {
 
     private HotelBookingHistory getFor(String roomId) {
         Optional<HotelBookingHistory> optional = hotelBookingHistoryRepository.getFor(roomId);
-        return optional.orElseGet(() -> new HotelBookingHistory(roomId, roomId));
+        return optional.orElseGet(() -> new HotelBookingHistory(roomId));
     }
 }

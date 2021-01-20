@@ -5,7 +5,9 @@ import com.mkopp.rentalapplication.domain.apartment.BookingAccepted;
 import com.mkopp.rentalapplication.domain.eventchannel.EventChannel;
 import com.mkopp.rentalapplication.domain.hotelRoom.HotelRoomBooked;
 import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.stereotype.Component;
 
+@Component
 public class SpringEventChannel implements EventChannel {
     private final ApplicationEventPublisher publisher;
 

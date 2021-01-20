@@ -4,7 +4,9 @@ import com.mkopp.rentalapplication.application.booking.AcceptBooking;
 import com.mkopp.rentalapplication.application.booking.RejectBooking;
 import com.mkopp.rentalapplication.application.commandregistry.CommandRegistry;
 import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.stereotype.Component;
 
+@Component
 public class SpringCommandRegistry implements CommandRegistry {
     private final ApplicationEventPublisher publisher;
 

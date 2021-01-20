@@ -10,6 +10,14 @@ class SquareMeter {
         this.squareMeter = squareMeter;
     }
 
-    protected SquareMeter() {
+    private SquareMeter() {
+    }
+
+    private Double getSquareMeter() {
+        return squareMeter;
+    }
+
+    private void setSquareMeter(Double squareMeter) {
+        this.squareMeter = squareMeter;
     }
 }

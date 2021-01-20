@@ -13,31 +13,31 @@ public class ApartmentBookingAssertions {
         this.actual = actual;
     }
 
-    static ApartmentBookingAssertions assertThat(ApartmentBooking actual) {
+    public static ApartmentBookingAssertions assertThat(ApartmentBooking actual) {
         return new ApartmentBookingAssertions(actual);
     }
 
-    ApartmentBookingAssertions isStart() {
+    public ApartmentBookingAssertions isStart() {
         Assertions.assertThat(actual).hasFieldOrPropertyWithValue("step", BookingStep.START);
         return this;
     }
 
-    ApartmentBookingAssertions hasBookingDateTimeEqualTo(LocalDateTime expected) {
+    public ApartmentBookingAssertions hasBookingDateTimeEqualTo(LocalDateTime expected) {
     Assertions.assertThat(actual).hasFieldOrPropertyWithValue("bookingDateTime", expected);
         return this;
     }
 
-    ApartmentBookingAssertions hasOwnerIdEqualTo(String expected) {
+    public ApartmentBookingAssertions hasOwnerIdEqualTo(String expected) {
         Assertions.assertThat(actual).hasFieldOrPropertyWithValue("ownerId", expected);
         return this;
     }
 
-    ApartmentBookingAssertions hasTenantIdEqualTo(String expected) {
+    public ApartmentBookingAssertions hasTenantIdEqualTo(String expected) {
         Assertions.assertThat(actual).hasFieldOrPropertyWithValue("tenantId", expected);
         return this;
     }
 
-    ApartmentBookingAssertions hasBookingPeriodThatHas(LocalDate expectedStart, LocalDate expectedEnd) {
+    public ApartmentBookingAssertions hasBookingPeriodThatHas(LocalDate expectedStart, LocalDate expectedEnd) {
         Assertions.assertThat(actual)
                 .hasFieldOrPropertyWithValue("bookingPeriod.start", expectedStart)
                 .hasFieldOrPropertyWithValue("bookingPeriod.end", expectedEnd);

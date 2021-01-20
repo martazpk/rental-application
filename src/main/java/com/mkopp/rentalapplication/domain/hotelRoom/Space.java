@@ -2,12 +2,8 @@ package com.mkopp.rentalapplication.domain.hotelRoom;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "ROOM_SPACE")
+@Embeddable
 class Space {
-    @Id
-    @GeneratedValue
-    private String id;
     private String name;
     @Embedded
     private SquareMeter squareMeter;
@@ -17,6 +13,6 @@ class Space {
         this.squareMeter = squareMeter;
     }
 
-    protected Space() {
+    private Space() {
     }
 }

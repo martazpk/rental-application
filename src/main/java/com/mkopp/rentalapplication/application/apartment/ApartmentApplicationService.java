@@ -2,10 +2,11 @@ package com.mkopp.rentalapplication.application.apartment;
 
 import com.mkopp.rentalapplication.domain.apartment.*;
 import com.mkopp.rentalapplication.domain.eventchannel.EventChannel;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.Map;
-
+@Service
 public class ApartmentApplicationService {
     private final ApartmentRepository apartmentRepository;
     private final EventChannel eventChannel;

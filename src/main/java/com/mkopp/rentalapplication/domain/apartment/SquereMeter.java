@@ -10,6 +10,14 @@ class SquereMeter {
         this.size = size;
     }
 
-    protected SquereMeter() {
+    private SquereMeter() {
+    }
+
+    private Double getSize() {
+        return size;
+    }
+
+    private void setSize(Double size) {
+        this.size = size;
     }
 }

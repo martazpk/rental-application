@@ -22,7 +22,7 @@ class BookingTest {
                 .hasTenantIdEqualTo(tenantId)
                 .hasAllDays(ImmutableList.of(start, dayBetweenStartAndEnd, end))
                 .isApartment()
-                .hasBookingStatusOpen();
+                .isOpen();
     }
 
     @Test
@@ -35,6 +35,6 @@ class BookingTest {
                 .hasTenantIdEqualTo(tenantId)
                 .hasAllDays(days)
                 .isHotel()
-                .hasBookingStatusOpen();
+                .isOpen();
     }
 }

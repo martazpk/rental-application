@@ -13,6 +13,22 @@ class Room {
         this.squareMeter = squereMeter;
     }
 
-    protected Room() {
+    private Room() {
+    }
+
+    private String getName() {
+        return name;
+    }
+
+    private void setName(String name) {
+        this.name = name;
+    }
+
+    private SquereMeter getSquareMeter() {
+        return squareMeter;
+    }
+
+    private void setSquareMeter(SquereMeter squareMeter) {
+        this.squareMeter = squareMeter;
     }
 }
